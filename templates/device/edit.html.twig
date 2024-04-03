@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Device{% endblock %}
+
+{% block content %}
+    <h1>Edit Device</h1>
+
+
+    {{ include('device/_form.html.twig', {'button_label': 'Update'}) }}
+    <br>
+
+    <a  class="btn btn-outline-secondary" href="{{ path('app_device_index') }}">back to list</a>
+
+  
+
+
+
+{% endblock %}

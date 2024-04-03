@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ConnectedDevice index{% endblock %}
+
+{% block content %}
+    <h1>List ConnectedDevice</h1>
+
+    <table class="table datatable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>DeviceId</th>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for connected_device in connected_devices %}
+            <tr>
+                <td>{{ connected_device.id }}</td>
+                <td>{{ connected_device.deviceId }}</td>
+                <td>{{ connected_device.name }}</td>
+                <td>{{ connected_device.location }}</td>
+                
+                <td>
+                {% if connected_device.timer is not empty %}
+                    {{ connected_device.timer.startTime|date('Y-m-d H:i:s') }}
+                {% else %}
+                    No start time available
+                {% endif %}
+                </td>
+                
+                <td>
+                {% if connected_device.timer is not empty %}
+                    {{ connected_device.timer.endTime|date('Y-m-d H:i:s') }}
+                {% else %}
+                    No end time available
+                {% endif %}
+                </td>
+                <td>
+
+                 <div class="btn-group" role="group" aria-label="Basic example">
+                 <a  class="btn btn-outline-primary" href="{{ path('app_connected_device_show', {'id': connected_device.id}) }}">Show</a>
+                    <a class="btn btn-outline-primary"  href="{{ path('app_connected_device_edit', {'id': connected_device.id}) }}">Edit</a>
+
+                   <a class="btn btn-outline-danger"> {{ include('connected_device/_delete_form.html.twig') }} </a>
+               
+                 </div>
+                    
+                    {% if connected_device.isOn %}
+                        <a class="green badge bg-danger" href="{{ path('app_connected_device_toggle', {'id': connected_device.id}) }}">Turn Off</a>
+                    {% else %}
+                        <a class="green badge bg-success" href="{{ path('app_connected_device_toggle', {'id': connected_device.id}) }}">Turn On</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">No records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-success"  href="{{ path('app_connected_device_new') }}">Create new</a>
+
+
+
+
+
+
+
+{% endblock %}

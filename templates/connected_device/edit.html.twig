@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ConnectedDevice{% endblock %}
+
+{% block content %}
+    <h1>Edit ConnectedDevice</h1>
+
+    
+
+    {{ include('connected_device/_form.html.twig', {'button_label': 'Update'}) }}
+<br>
+<div class="btn-group" >
+    <a  class="btn btn-outline-secondary" href="{{ path('app_connected_device_index') }}">back to list</a>
+<a  class="btn btn-outline-danger">
+    {{ include('connected_device/_delete_form.html.twig') }}
+    </a>
+    </div>
+{% endblock %}

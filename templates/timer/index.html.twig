@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}List Timer{% endblock %}
+
+{% block content %}
+    <h1>Timer index</h1>
+
+    <table class="table datatable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>StartTime</th>
+                <th>EndTime</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for timer in timers %}
+            <tr>
+                <td>{{ timer.id }}</td>
+                <td>{{ timer.startTime ? timer.startTime|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ timer.endTime ? timer.endTime|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_timer_show', {'id': timer.id}) }}">show</a>
+                    <a href="{{ path('app_timer_edit', {'id': timer.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_timer_new') }}">Create new</a>
+{% endblock %}

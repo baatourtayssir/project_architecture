@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Device{% endblock %}
+
+{% block content %}
+    <h1>Device</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ device.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ device.name }}</td>
+            </tr>
+            <tr>
+                <th>IdDevice</th>
+                <td>{{ device.idDevice }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+   
+
+      <a class="btn btn-secondary btn-sm mr-1" href="{{ path('app_device_index') }}">
+								
+									back to list
+								</a>
+
+
+    <a class="btn btn-primary btn-sm mr-1" href="{{ path('app_device_edit', {'id': device.id}) }}">
+								
+									Edit
+								</a>
+<br><br>
+
+
+    
+{% endblock %}

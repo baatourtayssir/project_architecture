@@ -1,0 +1,105 @@
+
+
+
+
+  <section class="section">
+      <div class="row">
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Horizontal Form</h5>
+
+              <!-- Horizontal Form -->
+			  {{ form_start(form) }}
+    <div {# class="form-control" #}>
+				<i class="fa fa-calendar"></i>
+				{{ form_label(form.deviceId) }}
+				{{ form_widget(form.deviceId) }}
+				<div class="form-error">
+					{{ form_errors(form.deviceId) }}
+				</div>
+			</div>
+			<br>
+
+            <div {# class="form-control" #}>
+				<i class="fa fa-calendar"></i>
+				{{ form_label(form.name) }}
+				{{ form_widget(form.name) }}
+				<div class="form-error">
+					{{ form_errors(form.name) }}
+				</div>
+			</div>
+            <div {# class="form-control" #}>
+				<i class="fa fa-calendar"></i>
+				{{ form_label(form.location) }}
+				{{ form_widget(form.location) }}
+				<div class="form-error">
+					{{ form_errors(form.location) }}
+				</div>
+			</div>
+            <div {# class="form-control" #}>
+				<i class="fa fa-calendar"></i>
+				{{ form_label(form.timer) }}
+				{{ form_widget(form.timer, { 'attr': {'class': 'form-control select-search'} }) }}
+				<div class="form-error">
+					{{ form_errors(form.timer) }}
+				</div>
+			</div>
+            <div class="form-group">
+                {{ form_label(form.isOn) }}
+                <div class="form-check">
+                    {{ form_widget(form.isOn) }}
+                    {{ form_errors(form.isOn) }}
+                </div>
+            </div>
+            <br>
+    <button class="btn btn-outline-success" >{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+             
+            </div>
+          </div>
+
+         
+
+        </div>
+
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Vertical Form</h5>
+
+              <!-- Vertical Form -->
+              <form class="row g-3">
+                <div class="col-12">
+                  <label for="inputNanme4" class="form-label">Your Name</label>
+                  <input type="text" class="form-control" id="inputNanme4">
+                </div>
+                <div class="col-12">
+                  <label for="inputEmail4" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="inputEmail4">
+                </div>
+                <div class="col-12">
+                  <label for="inputPassword4" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="inputPassword4">
+                </div>
+                <div class="col-12">
+                  <label for="inputAddress" class="form-label">Address</label>
+                  <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+              </form><!-- Vertical Form -->
+
+            </div>
+          </div>
+
+        
+        
+
+        </div>
+      </div>
+    </section>

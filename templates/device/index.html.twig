@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Device index{% endblock %}
+
+{% block content %}
+    <h1>List Devices</h1>
+
+    <table class="table datatable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>IdDevice</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for device in devices %}
+            <tr>
+                <td>{{ device.id }}</td>
+                <td>{{ device.name }}</td>
+                <td>{{ device.idDevice }}</td>
+                <td>
+                   <div class="btn-group" role="group" aria-label="Basic example">
+                 <a  class="btn btn-outline-primary" href="{{ path('app_device_show', {'id': device.id}) }}">Show</a>
+                    <a class="btn btn-outline-primary"  href="{{ path('app_device_edit', {'id': device.id}) }}">Edit</a>
+                  <a class="btn btn-outline-danger" > {{ include('device/_delete_form.html.twig') }} </a>
+               
+                 </div>
+
+
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{path('app_device_new')}}" class="btn btn-outline-success" >
+Add device
+					</a>
+{% endblock %}
